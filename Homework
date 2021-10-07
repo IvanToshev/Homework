@@ -1,0 +1,214 @@
+/*Задача 13. Ако имаме символен низ char str[] = “HELLO”, заменете 
+всичките символи с главна буква със съответните символи с 
+малка буква.*/
+#include <stdio.h>
+
+    int main()
+    {
+        char str[] = "HELLO";
+
+        str[0] = 'h';
+        str[1] = 'e';
+        str[2] = 'l';
+        str[3] = 'l';
+        str[4] = 'o';
+        str[5] = '\0';
+        
+        printf("%s", str);
+
+    }
+
+
+
+
+
+/*#include <stdio.h>
+#include <string.h>
+int main() {
+   char s[100];
+   int i;
+   printf("\nEnter a string : ");
+   gets(s);
+   for (i = 0; s[i]!='\0'; i++) {
+      if(s[i] >= 'a' && s[i] <= 'z') {
+         s[i] = s[i] -32;
+      }
+   }
+   printf("\nString in Upper Case = %s", s);
+   return 0;
+}*/
+
+
+/*Задача 11. Ако имаме символен низ от символа char str[] = 
+“Hello”; копирайте всеки един от неговите символи в низ, който 
+да изглежда огледален на него. Ето така char rts[] = “ollеH”; и 
+принтирайте резултата.
+*/
+
+
+#include <stdio.h>
+#include <string.h>  // vkarvame biblioteka <string.h> za da ni raboti strrev
+
+int main()
+
+{
+
+   char s[6] = "Hello"; // ukazvame goleminata na stringa
+
+   printf("String Hello\n");
+   strrev(s);
+   printf("Reversed string: %s\n", s);
+   return 0;
+}
+
+
+/*#include <stdio.h>      variant s cikul nameren v internet
+int main()
+{
+  char str[1000], rev[1000];  
+  int i, j, count = 0;
+  scanf("%s", str);
+  printf("\nString Before Reverse: %s", str);
+
+  while (str[count] != '\0')
+  {
+    count++;
+  }
+  j = count - 1;
+
+    for (i = 0; i < count; i++)
+  {
+    rev[i] = str[j];
+    j--;
+  }
+
+  printf("\nString After Reverse: %s", rev);
+}*/
+
+/*Задача 12. Ако имаме символен низ char str[] = “Hеllo”, заменете 
+буквите l с х на същия символен низ и отпечатайте резултата на 
+конзолата.*/
+
+#include <stdio.h>
+
+    int main()
+    {
+
+        char str[] = "Hello";
+
+        str[2] = 'x';
+        str[3] = 'x';
+
+        printf("%s", str);
+        return 0;
+
+    }
+    
+    /*Задача 16. Да се дефинира константата Пи (3.14159...) и да се напише 
+функция, която изчислява лицето на окръжност по даден радиус (Пи * R * R). 
+В main() да се извика горната функция с радиуси 1, 1.5, 13.*/
+
+    #include <stdio.h>
+
+        const double pi = 3.14159;
+        
+        double myFunction(double inputR)
+        {
+            double area = pi * inputR * inputR;
+            return area;
+
+        }
+
+        int main()
+        {
+            double r = 1.0;
+            double r1 = 1.5;
+            double r2 = 13.0;
+
+            printf("%f, %f,%f", myFunction(r), myFunction(r1), myFunction(r2));
+        
+        }
+        
+        /*Зада 14. Напишете глобална променлива, която увеличаваме с 1 във 
+функция void test(). Извикайте функцията три пъти test() от main() 
+принтирайте стойността на глобалната променлива.*/
+
+    #include <stdio.h>
+
+        int test = 0;
+
+        void myTest()
+        {
+            test = test +1;
+
+        }
+
+        int main()
+        {
+            
+            myTest();
+            myTest();
+            myTest();
+            
+            printf("%d", test);
+        }
+        
+        
+        /*Задача 18 Довършете задачата за кемперите от миналия път като добавите 
+променлива, в която да се събират парите, които клиента дължи на компанията. 
+Принтирайте резултата. Питайте клиента дали иска още налични продукти*/
+
+#include <stdio.h>
+
+    int main()
+    {
+        int caravans = 3; 
+        int campers = 3;
+    
+
+        float pricePerCaravan = 90;
+        float pricePerCamper = 100;
+
+        int choice = 0;
+
+        int days = 0;
+        float totalPrice = 0;
+        float totalAmount = 0;
+
+        do {
+
+        printf("\n Pleace enter type of vehicle.If caravan, press 1, if camper press 2, enter 0 for quit: ");
+        scanf("%d", &choice);
+            
+        if (choice == 1 )
+        {
+            printf("\n For how may days: ");
+            scanf("%d", &days);
+            totalPrice = days * (pricePerCaravan);
+            printf("Your price will be: %.2f lv. ", totalPrice);
+            totalAmount = totalAmount + totalPrice;
+
+        }
+        else if(choice == 2)
+        {
+            printf("\n For how many days ?:");
+            scanf("%d", &days);
+            totalPrice = days * (pricePerCamper);
+            printf("Your price will be: %.2f lv. ", totalPrice);
+            totalAmount = totalAmount + totalPrice;
+        }
+        else if(choice == 0 )
+        { 
+            printf("Bye!");
+
+        } else {
+            printf("Invalid choice");
+        }
+        } while(choice != 0);
+
+        printf("\nYour total amount is: %.2f lv.", totalAmount);
+
+    }
+    
+    
+    
